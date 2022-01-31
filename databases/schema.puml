@@ -1,0 +1,16 @@
+@startuml Sabilillah 
+
+class pencapaian {
+    * id : VARCHAR
+    --
+    halaman : VARCHAR
+    toogle : VARCHAR
+    title : VARCHAR
+    selected_penuh : VARCHAR
+    selected_setengah : VARCHAR
+    selected_kosong : VARCHAR
+}
+
+
+
+@enduml
