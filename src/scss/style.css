@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main-content .profile {
+  height: 25vh;
+}
+
+.main-content .profile h6 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 18px;
+  color: #898989;
+  margin-bottom: 0;
+}
+
+.main-content .profile p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+  margin-bottom: 0.2rem;
+}
+
+.main-content .pencapaian-materi {
+  height: 70vh;
+  background-color: white;
+  border-top-left-radius: 2.25rem !important;
+  border-top-right-radius: 2.25rem !important;
+}
+/*# sourceMappingURL=style.css.map */

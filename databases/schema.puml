@@ -11,6 +11,4 @@ class pencapaian {
     selected_kosong : VARCHAR
 }
 
-
-
 @enduml
