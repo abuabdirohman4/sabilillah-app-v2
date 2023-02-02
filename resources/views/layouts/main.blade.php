@@ -8,11 +8,13 @@
     <title>Absensi Brangsong</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
+    <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
+    <script src="{{ asset('build/assets/app.js') }}"></script>
     @livewireStyles
 </head>
 
 <body>
-    <div class="p-4 bg-[#F4F7F9] max-h-[100vh] overflow-hidden max-w-md mx-auto">
+    <div class="p-4 bg-[#F4F7F9] h-full max-w-md mx-auto">
         <x-navbar />
         <main class="">
             @yield('content')
