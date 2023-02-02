@@ -12,8 +12,9 @@
 </head>
 
 <body>
-    <div>
-        <main class="p-4 bg-[#F4F7F9] h-[100vh] max-w-md mx-auto">
+    <div class="p-4 bg-[#F4F7F9] h-[100vh] max-w-md mx-auto">
+        <x-navbar />
+        <main class="">
             @yield('content')
         </main>
     </div>
