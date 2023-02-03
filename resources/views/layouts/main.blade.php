@@ -11,8 +11,8 @@
     @livewireStyles
 </head>
 
-<body>
-    <div class="p-4 bg-[#F4F7F9] h-full max-w-md mx-auto">
+<body class="p-4 bg-gray-100 h-full max-w-lg mx-auto">
+    <div>
         <x-navbar />
         <main class="">
             @yield('content')
