@@ -21,3 +21,8 @@ const findByExtension = async (dir, ext) => {
 findByExtension("./public/build/assets", "js").then((files) => {
     console.log(files);
 });
+
+const name = "Jesse";
+const age = 40;
+
+// export { name, age };
