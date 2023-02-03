@@ -13,13 +13,11 @@
     @livewireStyles
 </head>
 
-<body class="bg-gray-100">
-    <div class="p-4 h-full max-w-[32rem] mx-auto">
-        <x-navbar />
-        <main class="">
-            @yield('content')
-        </main>
-    </div>
+<body class="bg-gray-100 p-4 h-full max-w-lg mx-auto" style="max-width: 32rem">
+    <x-navbar />
+    <main class="">
+        @yield('content')
+    </main>
     @livewireScripts
     @livewireScripts
 </body>
