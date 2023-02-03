@@ -8,8 +8,6 @@
     <title>Absensi Brangsong</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
-    <script src="{{ asset('build/assets/app.js') }}"></script>
     @livewireStyles
 </head>
 
