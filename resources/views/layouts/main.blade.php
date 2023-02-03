@@ -1,4 +1,5 @@
 @php
+    $cwd = getcwd();
     $css = basename(glob('/Users/abuabdirohman/Documents/Project/prj-sabilillah-app/sabilillah-app-v2/public/build/assets/*.css')[0], '.css');
     $js = basename(glob('/Users/abuabdirohman/Documents/Project/prj-sabilillah-app/sabilillah-app-v2/public/build/assets/*.js')[0], '.js');
 @endphp
@@ -19,6 +20,8 @@
         document.getElementById('css').href = `{{ asset('build/assets/${css}.css') }}`
         document.getElementById('js').src = `{{ asset('build/assets/${js}.js') }}`
     </script>
+    {{-- @vite('resources/css/app.css')
+    @vite('resources/js/app.js') --}}
     @livewireStyles
 </head>
 
