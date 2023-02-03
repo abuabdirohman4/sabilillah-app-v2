@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="px-3 bg-white overflow-auto">
+        <div class="px-3 bg-white overflow-auto h-[80vh]">
             <form action="">
                 <table class="w-full table-fixed text-sm text-left text-gray-500">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 sticky top-[-1px]">
