@@ -15,7 +15,7 @@
 
 <body class="bg-gray-100 p-4 max-w-lg mx-auto overflow-hidden" style="max-width: 32rem">
     <x-navbar />
-    <main class="">
+    <main>
         @yield('content')
     </main>
     @livewireScripts
