@@ -1,36 +1,23 @@
-// const fs = require('fs')
-// fs.rename('public/build/aseets/')
+const { readdir } = require("fs/promises");
+const path = require("path");
 
-// let file = "first.docx";
+const findByExtension = async (dir, ext) => {
+    const matchedFiles = [];
 
-// file = file.substr(0, file.lastIndexOf(".")) + ".htm";
+    const files = await readdir(dir);
 
-// console.log(file)
+    for (const file of files) {
+        // Method 1:
+        const fileExt = path.extname(file);
 
-// rename
-// file
+        if (fileExt === `.${ext}`) {
+            matchedFiles.push(file);
+        }
+    }
 
-// const testFolder = "./public/build/aseets/";
-const fs = require("fs");
+    return matchedFiles;
+};
 
-// // fs.readdir(testFolder, (err, files) => {
-// //     // files.forEach((file) => {
-// //         console.log(files);
-// //     // });
-// // });
-// fs.readdirSync(testFolder).forEach((file) => {
-//     console.log(file);
-// });
-
-// const file = fs.readFileSync("public/build/aseets/app-129de89d");
-
-// console.log(fs.lstatSync("/").isDirectory());
-// console.log(require("path").dirname(require.main.filename));
-// console.log(__dirname);
-
-const path = require('path')
-const notes = '/users/joe/notes.txt';
-
-console.log(path.dirname(notes)); // /users/joe
-console.log(path.basename(notes)); // notes.txt
-console.log(path.extname(notes)); // .txt
+findByExtension("./public/build/assets", "js").then((files) => {
+    console.log(files);
+});
