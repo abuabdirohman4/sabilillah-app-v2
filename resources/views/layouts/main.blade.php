@@ -14,7 +14,7 @@
 <body class="p-4 bg-gray-100 h-full max-w-lg mx-auto">
     <div>
         <x-navbar />
-        <main class="">
+        <main>
             @yield('content')
         </main>
     </div>
