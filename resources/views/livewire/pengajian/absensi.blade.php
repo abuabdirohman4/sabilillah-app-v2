@@ -55,25 +55,25 @@
                     @endfor
                 </tbody>
             </table>
-            <div class="absolute left-0 bottom-0 w-full h-[9vh] flex justify-evenly gap-4 bg-gray-50">
-                <div class="my-auto text-center text-sm">Tanggal <br> 2 Februari 2023</div>
-                <div class="flex flex-col text-center">
+            <div class="absolute left-0 bottom-0 w-full h-[9vh] grid grid-cols-5 bg-gray-50">
+                <div class="my-auto col-span-2 text-center text-sm font-bold">
+                    Kehadiran <br>
+                    <span class="font-normal text-lg">
+                        100%
+                    </span>
+                </div>
+                <div class="flex flex-col text-center ">
                     <button type="submit"
-                        class="relative -translate-y-4 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-full w-14 h-14 text-sm py-2.5 text-center"><i
+                        class="relative mx-auto -translate-y-4 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-full w-14 h-14 text-sm py-2.5"><i
                             class="fa-regular fa-floppy-disk fa-2xl"></i></button>
                     <p for="" class="text-sm font-bold relative -translate-y-2">Simpan</p>
                 </div>
-                <div class="my-auto text-center text-sm">Kehadiran <br> 100%</div>
-                {{-- <div
-                    class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white">
-                    <span
-                        class="relative text-center px-5 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                        Kehadiran 100%
+                <div class="my-auto col-span-2 text-center text-sm font-bold">
+                    Tanggal <br>
+                    <span class="font-normal">
+                        2 Februari 2023
                     </span>
                 </div>
-                <div class="w-full my-auto">
-                    <x-button class="w-full" children="Simpan" type="submit" />
-                </div> --}}
             </div>
         </form>
     </div>
