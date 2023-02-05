@@ -1,7 +1,7 @@
 @php
     $cwd = getcwd();
-    $css = basename(glob('/Users/abuabdirohman/Documents/Project/prj-sabilillah-app/sabilillah-app-v2/public/build/assets/*.css')[0], '.css');
-    $js = basename(glob('/Users/abuabdirohman/Documents/Project/prj-sabilillah-app/sabilillah-app-v2/public/build/assets/*.js')[0], '.js');
+    $css = asset('build/assets/' . basename(glob($cwd . '/build/assets/*.css')[0], '.css') . '.css');
+    $js = asset('build/assets/' . basename(glob($cwd . '/build/assets/*.js')[0], '.js') . '.js');
 @endphp
 
 <!DOCTYPE html>
@@ -12,14 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Absensi Brangsong</title>
-    <link rel="stylesheet" href="" id="css">
-    <script src="" id="js"></script>
-    <script>
-        const css = "{{ $css }}"
-        const js = "{{ $js }}"
-        document.getElementById('css').href = `{{ asset('build/assets/${css}.css') }}`
-        document.getElementById('js').src = `{{ asset('build/assets/${js}.js') }}`
-    </script>
+    <link rel="stylesheet" href="{{ $css }}" id="css">
+    <script src="{{ $js }}" id="js"></script>
     {{-- @vite('resources/css/app.css')
     @vite('resources/js/app.js') --}}
     @livewireStyles
