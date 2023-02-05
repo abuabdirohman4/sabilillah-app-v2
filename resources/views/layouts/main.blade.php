@@ -19,7 +19,7 @@
     @livewireStyles
 </head>
 
-<body class="bg-gray-50 p-4 max-w-lg mx-auto overflow-hidden" style="max-width: 32rem">
+<body class="bg-gray-50 p-4  mx-auto overflow-hidden" style="max-width: ">
     <x-navbar />
     <main>
         @yield('content')

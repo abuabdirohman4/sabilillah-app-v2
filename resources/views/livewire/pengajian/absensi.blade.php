@@ -16,7 +16,9 @@
     </div>
 
     <div class="px-3 bg-white overflow-auto h-[80vh]" style="height: 80vh">
-        <form action="">
+        {{-- <form action="{{ route('absensi.store') }}" method="post">
+            @csrf --}}
+        <form wire:submit.prevent="store">
             <table class="w-full table-fixed text-sm text-left text-gray-50 mb-20">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 sticky top-[-1px]">
                     <tr>
@@ -24,43 +26,46 @@
                             #
                         </th>
                         <th scope="col" class="pl-0 pr-1 py-3 w-8/12">
-                            Nama
+                            Checkbox
                         </th>
                         <th scope="col" class="pl-4 pr-1 w-2/12">
-                            <div class="flex items-center">
-                                <input id="checkbox-all" type="checkbox"
+                            <div class="flex items-center pl-1">
+                                {{-- <input id="checkbox-all" type="checkbox"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
-                                <label for="checkbox-all" class="sr-only">checkbox</label>
+                                <label for="checkbox-all" class="sr-only">checkbox</label> --}}
+                                H
                             </div>
                         </th>
                     </tr>
                 </thead>
-                <tbody x-data="{ checkbox: false }">
-                    @for ($i = 1; $i < 22; $i++)
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50">
+                <tbody>
+                    @foreach ($santris as $santri)
+                        <tr class="bg-white border-b hover:bg-gray-50">
                             <td class="px-5 w-2/12 text-black">
-                                {{ $i }}
+                                {{ $loop->iteration }}
+                                </span>
                             </td>
                             <th scope="row">
-                                <div class="pl-0 pr-1 py-3 w-full truncate font-medium text-gray-900 whitespace-nowrap cursor-pointer"
-                                    x-on:click="checkbox = !checkbox">Apple MacBook Pro 17</div>
+                                <label for="checkbox-{{ $santri->id }}"
+                                    class="block pl-0 pr-1 py-3 w-full truncate font-medium text-gray-900 whitespace-nowrap cursor-pointer">{{ $santri->nama }}</label>
                             </th>
-                            <td>
-                                <div x-on:click="checkbox = !checkbox" class="pl-4 pr-1 py-3 w-full cursor-pointer">
-                                    <input id="checkbox-table-1" type="checkbox" x-model="checkbox"
+                            <td x-data="{ checkbox: @entangle('checkbox') }">
+                                <div class="pl-4 pr-1 py-3 w-full cursor-pointer">
+                                    <input id="checkbox-{{ $santri->id }}" type="checkbox"
+                                        wire:click="getData({{ $santri->id }}, {{ true }})"
                                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
                                 </div>
                             </td>
                         </tr>
-                    @endfor
+                    @endforeach
                 </tbody>
             </table>
             <div class="absolute left-0 bottom-0 w-full h-[9vh] grid grid-cols-5 bg-gray-50">
                 <div class="my-auto col-span-2 text-center text-sm font-bold">
-                    Kehadiran <br>
-                    <span class="font-normal text-lg">
-                        100%
-                    </span>
+                    Kehadiran {{ implode($hadir) }}<br>
+                    <input class="font-normal text-md text-center" name="persentase" value="{{ $persentase }}"
+                        readonly>
+                    {{-- 100% --}}
                 </div>
                 <div class="flex flex-col text-center ">
                     <button type="submit"
@@ -70,9 +75,8 @@
                 </div>
                 <div class="my-auto col-span-2 text-center text-sm font-bold">
                     Tanggal <br>
-                    <span class="font-normal">
-                        2 Februari 2023
-                    </span>
+                    <input class="font-normal text-center" value="{{ $tanggal }}" name="tanggal" readonly>
+                    {{-- 2 Februari 2023 --}}
                 </div>
             </div>
         </form>

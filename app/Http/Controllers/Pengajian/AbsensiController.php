@@ -12,4 +12,13 @@ class AbsensiController extends Controller
         return view('pengajian.absensi', [
         ]);
     }
+
+    public function store(Request $request)
+    {
+        $validate = $request->validate([
+            "checkbox" => "",
+        ]);
+        return $request;
+        // return $validate;
+    }
 }

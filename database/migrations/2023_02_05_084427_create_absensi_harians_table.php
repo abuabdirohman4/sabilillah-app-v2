@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('absensi_harian', function (Blueprint $table) {
+        Schema::create('absensi_harians', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('santri_id');
+            $table->date('tanggal');
             $table->boolean('hadir')->default(0);
             $table->boolean('ijin')->default(0);
             $table->string('alasan');
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('absensi_harian');
+        Schema::dropIfExists('absensi_harians');
     }
 };

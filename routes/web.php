@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [AbsensiController::class, 'index']);
+
+Route::post('/', [AbsensiController::class, 'store'])->name('absensi.store');
