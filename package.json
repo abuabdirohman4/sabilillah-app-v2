@@ -16,7 +16,9 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.2.1",
+        "@prettier/plugin-php": "prettier/plugin-php",
         "alpinejs": "^3.11.1",
-        "flowbite": "^1.6.3"
+        "flowbite": "^1.6.3",
+        "prettier": "^2.8.3"
     }
 }
