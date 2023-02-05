@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('santri', function (Blueprint $table) {
+        Schema::create('santris', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
             $table->string('kelamin');
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('asal');
             $table->string('pekerjaan');
             $table->string('anggota');
-            $table->boolean('arhived');
+            $table->boolean('archived');
             $table->timestamps();
         });
     }
