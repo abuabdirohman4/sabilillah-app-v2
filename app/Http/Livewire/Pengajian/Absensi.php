@@ -15,14 +15,18 @@ class Absensi extends Component
     public $arrayId = [];
     public $absensiSantri = [];
     public $store = [];
+    public $search;
 
     public function render()
     {
-        $santri = Santri::get();
+        $santri = Santri::orderBy("nama", "asc");
+        $this->search != null &&
+            $santri->where("nama", "like", "%" . $this->search . "%");
         $this->tanggal = Carbon::now()->format("d-m-Y");
-        $this->persentase = (count($this->hadir) / count($santri)) * 100 . "%";
+        $this->persentase =
+            (count($this->hadir) / count(Santri::get())) * 100 . "%";
         return view("livewire.pengajian.absensi", [
-            "santris" => $santri,
+            "santris" => $santri->get(),
         ]);
     }
 
@@ -80,7 +84,7 @@ class Absensi extends Component
                 array_push($this->store, $absensiSantri);
             }
         }
-        dd($this->store);
+        // dd($this->store);
         AbsensiHarian::insert($this->store);
     }
 }
