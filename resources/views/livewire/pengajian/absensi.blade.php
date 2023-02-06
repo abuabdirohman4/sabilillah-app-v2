@@ -21,7 +21,7 @@
                             #
                         </th>
                         <th scope="col" class="pl-0 pr-1 py-3 w-8/12">
-                            Checkbox {{ $search }}
+                            Checkbox {{ $count }}
                         </th>
                         <th scope="col" class="pl-4 pr-1 w-2/12">
                             <div class="flex items-center pl-1">
@@ -58,8 +58,8 @@
             </table>
             <div class="absolute left-0 bottom-0 w-full h-[9vh] grid grid-cols-5 bg-gray-50">
                 <div class="my-auto col-span-2 text-center text-sm font-bold">
-                    Kehadiran<br>
-                    <input class="font-normal text-md text-center" name="persentase" value="{{ $persentase }}"
+                    Kehadiran
+                    <input class="font-normal text-md text-center" name="persentase" value="{{ $persentase }}%"
                         readonly>
                 </div>
                 <div class="flex flex-col text-center ">
@@ -69,7 +69,7 @@
                     <p for="" class="text-sm font-bold relative -translate-y-2">Simpan</p>
                 </div>
                 <div class="my-auto col-span-2 text-center text-sm font-bold">
-                    Tanggal <br>
+                    Tanggal
                     <input class="font-normal text-center" value="{{ $tanggal }}" name="tanggal" readonly>
                 </div>
             </div>

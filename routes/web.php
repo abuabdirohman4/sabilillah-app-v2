@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Pengajian\AbsensiController;
+use App\Http\Controllers\Pengajian\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [AbsensiController::class, 'index']);
+Route::resource('/', IndexController::class, ['names' => [
+    'index' => 'pengajian',
+    'show' => 'pengajian.show',
+    'edit' => 'pengajian.edit',
+    'destroy' => 'pengajian.destroy',
+]]);
 
-Route::post('/', [AbsensiController::class, 'store'])->name('absensi.store');
+Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi');
+Route::post('/absensi', [AbsensiController::class, 'store'])->name('absensi.store');

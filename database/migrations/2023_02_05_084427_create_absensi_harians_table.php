@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('absensi_harians', function (Blueprint $table) {
+        Schema::create('absensis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('santri_id');
             $table->date('tanggal');

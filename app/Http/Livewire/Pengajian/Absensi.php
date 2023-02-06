@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Pengajian;
 
-use App\Models\AbsensiHarian;
+use App\Models\Absensi as ModelAbsensi;
 use Carbon\Carbon;
 use App\Models\Santri;
 use Livewire\Component;
@@ -16,6 +16,7 @@ class Absensi extends Component
     public $absensiSantri = [];
     public $store = [];
     public $search;
+    public $count;
 
     public function render()
     {
@@ -24,7 +25,8 @@ class Absensi extends Component
             $santri->where("nama", "like", "%" . $this->search . "%");
         $this->tanggal = Carbon::now()->format("d-m-Y");
         $this->persentase =
-            (count($this->hadir) / count(Santri::get())) * 100 . "%";
+            (count(array_filter($this->hadir)) / count(Santri::get())) * 100;
+
         return view("livewire.pengajian.absensi", [
             "santris" => $santri->get(),
         ]);
@@ -45,9 +47,10 @@ class Absensi extends Component
         array_push($this->arrayId, $id);
         $santris = Santri::where("id", $id)->get();
         $hadir == true ? ($hadir = 1) : ($hadir = 0);
+        $this->tanggal = date("Y-m-d H:i:s");
         $absensiSantri = [
             "santri_id" => $santris[0]->id,
-            "tanggal" => Carbon::now(),
+            "tanggal" => $this->tanggal,
             "hadir" => $hadir,
             "ijin" => 0,
             "alasan" => "test",
@@ -61,17 +64,6 @@ class Absensi extends Component
         foreach (Santri::get() as $santri) {
             array_push($idSantri, $santri->id);
         }
-        for ($i = 0; $i < count($idSantri); $i++) {
-            if ($i >= count($this->store)) {
-                array_push($this->store, [
-                    "santri_id" => $idSantri[$i],
-                    "tanggal" => "2023-02-05T14:52:09.702243Z",
-                    "hadir" => 0,
-                    "ijin" => 0,
-                    "alasan" => "test",
-                ]);
-            }
-        }
         if ($this->store == []) {
             for ($i = 0; $i < count($idSantri); $i++) {
                 $absensiSantri = [
@@ -83,8 +75,21 @@ class Absensi extends Component
                 ];
                 array_push($this->store, $absensiSantri);
             }
+        } else {
+            for ($i = 0; $i < count($idSantri); $i++) {
+                if ($i >= count($this->store)) {
+                    $this->tanggal = date("Y-m-d H:i:s");
+                    array_push($this->store, [
+                        "santri_id" => $idSantri[$i],
+                        "tanggal" => $this->tanggal,
+                        "hadir" => 0,
+                        "ijin" => 0,
+                        "alasan" => "test",
+                    ]);
+                }
+            }
         }
         // dd($this->store);
-        AbsensiHarian::insert($this->store);
+        ModelAbsensi::insert($this->store);
     }
 }
