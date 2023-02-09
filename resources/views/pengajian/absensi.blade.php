@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('name')
-    Absensi
+    Absensi Bagus
 @endsection
 @section('content')
     @livewire('pengajian.absensi')
